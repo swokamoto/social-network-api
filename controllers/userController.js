@@ -3,9 +3,9 @@ const { User, Thought } = require('../models');
 module.exports = {
 
     // get all users
-    async getAllThoughts(req, res) {
+    async getAllUsers(req, res) {
         try {
-            const thoughts = await Thought.find();
+            const thoughts = await User.find();
             res.json(thoughts);
         } catch (err) {
             console.log(err);
@@ -14,9 +14,9 @@ module.exports = {
     },
 
     // get one user by id
-    async getThoughtById({ params }, res) {
+    async getUserById({ params }, res) {
         try {
-            const thought = await Thought.findById(params.id);
+            const thought = await User.findById(params.id);
 
             if (!thought) {
                 res.status(404).json({ message: 'No thought found with this id!' });
