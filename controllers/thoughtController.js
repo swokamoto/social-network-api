@@ -1,4 +1,4 @@
-const { Thought, User } = require('../models');
+const { Thought } = require('../models');
 
 module.exports = {
 
@@ -31,6 +31,12 @@ module.exports = {
     },
 
     // create thought
+    // Example data
+    // {
+    //     "thoughtText": "Here's a cool thought...",
+    //     "username": "teddyboi",
+    //     "userId": "5edff358a0fcb779aa7b118b"
+    // }
     async createThought({ body }, res) {
         try {
             const thought = await Thought.create(body);
@@ -73,7 +79,7 @@ module.exports = {
     async addReaction({ params, body }, res) {
         try {
             const thought = await Thought.findByIdAndUpdate(
-                params.thoughtId,
+                params.id,
                 { $push: { reactions: body } },
                 { new: true, runValidators: true }
             );
@@ -94,7 +100,7 @@ module.exports = {
     async removeReaction({ params }, res) {
         try {
             const thought = await Thought.findByIdAndUpdate(
-                params.thoughtId,
+                params.id,
                 { $pull: { reactions: { reactionId: params.reactionId } } },
                 { new: true }
             );

@@ -22,6 +22,11 @@ router.route('/:id')
     .delete(deleteThought);
 
 // Set up POST and DELETE at /api/thoughts/:thoughtId/reactions
+// example data
+// {
+//     "reactionBody": "Here's a cool reaction...",
+//     "username": "teddyboi"
+// }
 router.route('/:id/reactions')
     .post(addReaction)
     .delete(removeReaction);

@@ -31,6 +31,12 @@ module.exports = {
     },
 
     // create new user
+    // Example data
+    // {
+    //     "username": "teddyboi",
+    //     "email": "happy@gmail.com
+    // }
+
     async createUser ({ body }, res) {
         try {
             const user = await User.create(body);
@@ -55,7 +61,10 @@ module.exports = {
     // delete user
     async deleteUser({ params }, res) {
         try {
-            const user = await User.findByIdAndDelete(params.id);
+            const user = await User.findByIdAndDelete( 
+                params.id,
+                {new: true}
+            );
             res.json(user);
         } catch (err) {
             console.log(err);
