@@ -1,6 +1,6 @@
 # Social Network API
--[Link to GitHub repository](https://github.com/swokamoto/social-network-api)
--[Link to video Demo]()
+- [Link to GitHub repository](https://github.com/swokamoto/social-network-api)
+- [Link to video Demo](https://youtu.be/1w-guJTe6DU)
 ## Table of Contents
 
 - [Social Network API](#social-network-api)
